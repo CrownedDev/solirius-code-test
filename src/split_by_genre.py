@@ -2,6 +2,7 @@ import pandas as pd
 import os
 import logging
 from utils import create_directory, read_parquet_data
+from utils import FILMS_FILE_PATH, GENRES_DIR
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -58,6 +59,6 @@ def split_by_genre(input_path: str, output_dir: str) -> None:
 
 if __name__ == "__main__":
     split_by_genre(
-        input_path="output/films.parquet",
-        output_dir="output/genres"
+        input_path=FILMS_FILE_PATH,
+        output_dir=GENRES_DIR
     )

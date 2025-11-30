@@ -1,10 +1,10 @@
 import pandas as pd
 import logging
 from utils import create_directory_file_path, load_schema, read_csv_data
+from utils import INPUT_CSV, SCHEMA_PATH, FILMS_FILE_PATH
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-
 
 def format_columns(df: pd.DataFrame, schema: dict) -> pd.DataFrame:
     logger.info(f"Formatting columns started")
@@ -50,7 +50,7 @@ def csv_to_parquet(input_csv: str, schema_path: str, output_path: str) -> str:
 
 if __name__ == "__main__":
     csv_to_parquet(
-        input_csv="resources/csv/allFilms.csv",
-        schema_path="resources/json/allFilesSchema.json",
-        output_path="output/films.parquet"
+        input_csv=INPUT_CSV,
+        schema_path=SCHEMA_PATH,
+        output_path=FILMS_FILE_PATH
     )

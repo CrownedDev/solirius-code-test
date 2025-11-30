@@ -4,14 +4,12 @@ import logging
 
 from csv_to_parquet import csv_to_parquet
 from split_by_genre import split_by_genre
+from utils import INPUT_CSV, SCHEMA_PATH, FILMS_FILE_PATH, GENRES_DIR
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-INPUT_CSV = "resources/csv/allFilms.csv"
-SCHEMA_PATH = "resources/json/allFilesSchema.json"
-FILMS_FILE_PATH = "output/films.parquet"
-GENRES_DIR = "output/genres"
+
 
 
 class ExecuteCsvToParquet(luigi.Task):    

@@ -5,6 +5,12 @@ import json
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+INPUT_CSV = "resources/csv/allFilms.csv"
+SCHEMA_PATH = "resources/json/allFilesSchema.json"
+FILMS_FILE_PATH = "output/films.parquet"
+GENRES_DIR = "output/genres"
+ZERO_SCORE = 0
+CATEGORY_SCORE = 25  
 
 
 def create_directory_file_path(file_path: str) -> None:
@@ -34,3 +40,6 @@ def read_parquet_data(input_path: str) -> pd.DataFrame:
     logging.info(f"Reading Parquet data from: {input_path}")
     df = pd.read_parquet(input_path)
     return df
+
+def split_values(value: str) -> set:
+    return set(item.strip() for item in value.split(','))
